@@ -1,0 +1,223 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\qed}{\hfill$\blacksquare$}
+\let\newproof\proof
+\renewenvironment{proof}{\begin{addmargin}[1em]{0em}\begin{newproof}}{\end{newproof}\end{addmargin}\qed}
+% \newcommand{\expl}[1]{\text{\hfill[#1]}$}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{reflection}[2][Reflection]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{proposition}[2][Proposition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+ \title{
+Introduction to Mathematical thinking\\
+\vspace{3 mm}
+{\large PROOFS \\}
+\vspace{3 mm}
+{\Large  Deepak Kumar\\}
+}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+
+\lhead{Introduction to Mathematical thinking}
+
+\rhead{\today}
+ 
+\maketitle
+ 
+\begin{problem}{1} %You can use theorem, proposition, exercise, or reflection here.  Modify x.yz to be whatever number you are proving
+Say whether the following is true or false and support your answer by a proof.
+$$(\exists m \in \N )(\exists n \in \N)(3m+5n = 12)$$
+\end{problem}
+
+\begin{proof}
+The statement is false.\\
+To show that the statement $ 3m + 5n = 12 $ is never true, we'll exhaust all posibilities of $m$ and $n$.\\ \\
+Consider all $n \geq 2$, clearly for any value of $m \in \N$ we'll have $3m + 5n \geq 13$. Hence we need to consider only $n = 1$. \\ \\
+Now let's assume that $(\exists m \in \N)$ that satisfies our equation. We'll do a proof by contradiction here.\\
+For  $n = 1$, our equation becomes: $$3m + 5 = 12$$
+$$3m = 7$$
+But this means that $3|7$, which is false. Hence our assumption is false.\\
+Thus, there is no such $m$ and $n$ which satisfies the original equation.
+\end{proof}
+ \\
+ \\
+ 
+ \begin{problem}{2} Say whether the following is true or false and support your answer by a proof: The sum of any five consecutive integers is divisible by 5 (without remainder).
+\end{problem}
+
+\begin{proof}
+The statement is true.\\
+To show this we'll use 5 arbitrary consecutive integers and prove that their sum is divisible by 5. \\ \\
+Let $n$ be an arbitrary integer. So our 5 consecutive integers are $n, n+1, n+2, n+3, n+4$. Note that all these are arbitrary. \\ \\
+Let the sum of these numbers be denoted by $S$. \\
+Sum of these 5 numbers = $S$ = $(n) + (n+1) + (n+2) + (n+3) + (n+4)$
+$$ = 5n + 10$$
+$$ = 5(n + 2)$$
+This means that $5|S$.
+Hence we've proved that the statement is true.
+\end{proof}
+ \\
+ \\
+ 
+ 
+ 
+ 
+\begin{problem}{3} Say whether the following is true or false and support your answer by a proof: For any integer n, the number $ n^2 + n + 1 $ is odd.
+\end{problem}
+
+\begin{proof}
+The statement is true.\\
+To show this we'll use division theorem. \\ \\
+By division theorem any integer n can be expressed as $2k$ or $2k+1$ where $k \in \Z$ \\ \\
+Case 1: If $n = 2k$, then $$ n^2 + n + 1 =  (2k)^2 + (2k) + 1 $$
+$$ = 4k^2 + 2k + 1 = 2(2k^2 + k) + 1$$. 
+This number is $1$ more than a multiple of $2$. Hence, it is odd. \\ \\
+Case 2: If $n = 2k+1$, then $$n^2 + n + 1 = (2k+1)^2 + (2k+1) +1$$
+$$ = 4k^2 + 4k + 1 + 2k + 1 + 1$$
+$$ = 4k^2 + 6k + 2 + 1 = 2(2k^2 + 3k + 1) + 1$$.
+This number is $1$ more than a multiple of $2$. Hence, it is odd.\\ \\
+Hence in both the cases we have $n^2 + n + 1$ as odd. Thus exhaustively the term is always odd.
+\end{proof}
+ \\
+ \\
+ 
+ 
+ 
+\begin{problem}{4}  Prove that every odd natural number is of one of the forms $4n + 1$ or $4n + 3$, where n is an integer.
+\end{problem}
+
+\begin{proof}
+The statement is true.\\
+To show this we'll use division theorem. \\ \\
+By division theorem any integer k can be expressed as $4n$ or $4n+1$ or $4n+2$ or $4n+3$ where $n \in \Z$ \\ \\
+Clearly $4n$, $4n+2$ are even and $4n+1$, $4n+3$  are odd. But we can express every number $k \in \Z$ in these forms.
+Hence any odd number is of the form $4n+1$ or $4n+3$.
+\end{proof}
+ \\
+ \\
+ 
+ 
+ \begin{problem}{5}  Prove that for any integer n, at least one of the integers $n, n + 2, n + 4$ is divisible by 3.
+\end{problem}
+
+\begin{proof}
+The statement is true.\\
+To show this we'll use division theorem. \\ \\
+By division theorem any integer $n$ can be expressed as $3k$ or $3k+1$ or $3k+2$ where $k \in \Z$. We'll show that if n is in any of these forms, then one of $n, n+2, n+4$ is divisible by 3 \\ \\
+Case 1: $n=3k$\\
+Clearly $n$ is divisible by 3.\\ \\
+Case 2: $n=3k+1$ \\
+So, $n+2 = 3k+2+1 = 3k+3 = 3(k+1)$.\\
+Clearly $n+2$ is divisible by 3.\\ \\
+Case 3: $n=3k+2$ \\
+So, $n+4 = 3k+2+4 = 3(k+2)$ \\
+Clearly $n+4$ is divisible by 3.\\ \\
+Hence exhaustively one of $(n), (n+2), (n+4)$ is divisible by 3. Hence proved.
+\end{proof}
+ \\
+ \\
+ 
+ \begin{problem}{6} A classic unsolved problem in number theory asks if there are infinitely many pairs of ‘twin primes’, pairs of primes separated by 2, such as 3 and 5, 11 and 13, or 71 and 73. Prove that the only prime triple (i.e. three primes, each 2 from the next) is 3, 5, 7.
+\end{problem}
+
+\begin{proof}
+We've already shown in previous problem that for any $n, n \in \Z$, one of $n, n+2, n+4$ is divisible by 3.\\
+For this problem too, we have that any prime triplet will be of the form $n, n+2, n+4$. But one of these is divisible by 3 by previous proof. \\ \\
+Hence for $n > 3$, one of $n, n+2, n+4$ is divisible by 3 and hence it can't be prime. Thus another prime triplet can't exist.
+\end{proof}
+ \\
+ \\
+ 
+ \begin{problem}{7} Prove that for any natural number n,
+ $$2 + 2^2 + 2^3 + ... + 2^n = 2^{n+1} - 2$$
+\end{problem}
+
+\begin{proof}
+We'll prove this using algebraic manipulation.\\ \\
+Let $$S_n = 2 + 2^2 + 2^3 + ... + 2^n$$
+$$2S_n = 2^2 + 2^3 + ... + 2^n + 2^{n+1}$$
+Subtracting first equation from second we get: 
+$$2S_n - S_n = 2^{n+1} - 2$$
+Hence Proved.
+\end{proof}
+ \\
+ \\
+ 
+ 
+\begin{problem}{8} Prove (from the definition of a limit of a sequence) that if the sequence $\{a_n\}_{n=1}^{\infty}$ tends to limit $L$
+as $n \to \infty$, then for any fixed number $M > 0$, the sequence $\{M a_n\}_
+{n=1}^{\infty}$ tends to the limit $ML$.
+\end{problem}
+
+\begin{proof}
+By definition of limit, for a given $\epsilon > 0$, we can find an $N$ such that $n \geq N \Rightarrow |a_n - L| < (\epsilon/M)$\\ \\
+Thus, $n \geq N \Rightarrow |Ma_n - ML| = M.|a_n - L| < M.\epsilon/M = \epsilon$ \\
+Thus $\{M a_n\}_
+{n=1}^{\infty}$ tends to the limit $ML$. Hence proved
+\end{proof}
+ \\
+ \\
+ 
+
+\begin{problem}{9} Given an infinite collection $A_n, n = 1, 2, 3,...$ of intervals of the real line, their intersection is defined to be $\cap_{n=1}^{\infty} A_n = \{ x|(\forall n)(x \in A_n)\}$. Give an example of a family of intervals $A_n, n=1,2,...,$ such that $A_{n+1} \subset A_n$ for all $n$ and $\cap_{n=1}^{\infty} A_n = \phi$. Prove that your example has the stated property.
+\end{problem}
+
+\begin{proof}
+Let $A_n = (0, 1/n)$. Clearly $\cap_{n=1}^{\infty} A_n \subseteq A_1 = (0,1)$. \\
+Hence any element of the intersection must be a member of $(0,1)$. But if $x \in (0,1)$, we can find a natural number $n$ such that $1/n < x$. \\
+Then $x \notin A_n,$ so $x \notin \cap_{n=1}^{\infty} A_n$. Thus $\cap_{n=1}^{\infty} A_n = \phi$. \\
+Hence proved.
+\end{proof}
+ \\
+ \\
+ 
+\begin{problem}{10} Give an example of family of intervals $A_n, n=1,2,...,$ such that $A_{n+1} \subset A_n$ for all $n$ and $\cap_{n=1}^{\infty} A_n$ consists of a single real number. Prove your example has stated property.
+\end{problem}
+
+\begin{proof}
+Let $A_n = [0,1/n)$. Clearly $0 \in \cap_{n=1}^{\infty} A_n$. \\ 
+Using argument shown in previous question, we can show  that no other member is in the intersection. \\ \\
+Hence $\cap_{n=1}^{\infty} A_n = \{0\}$.
+Hence proved.
+\end{proof}
+ \\
+ \\
+ 
+
+% -------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}
